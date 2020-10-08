@@ -1,75 +1,100 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link>|
-      <router-link to="/about">About</router-link>|
-      <router-link to="/example">example</router-link>|
-      <router-link to="/compose">compose</router-link>|
-      <router-link to="/example">example</router-link>|
-      <!-- <div>{{ name }}</div>
-      <button @click="handleClick">改变name</button> -->
-    </div>
-    <router-view />
-  </div>
+	<img alt="Vue logo" src="./assets/logo.png" />
+	<div>
+		<h2>欢迎光临红浪漫洗浴中心</h2>
+		<div>请选择一位美女为你服务</div>
+	</div>
+	<button
+		v-for="(item, index) in girls"
+		v-bind:key="index"
+		@click="selectGirlFun(index)"
+	>
+		{{ index }} : {{ item }}
+	</button>
+	<div>你选择了【{{ selectGirl }}】为你服务</div>
+	<div><button @click="overAction">点餐完毕</button></div>
+	<div>{{ overText }}</div>
 </template>
 
-<script>
-import { mapState } from "vuex";
-// import withPromise from "./components/vue-hoc/with-promise";
-const Index = {
-  data: () => {
-    return {
-      // name: "liwang"
-    };
-  },
-  //...mapState(["name"]) //将store
+<script lang="ts">
+import {
+	defineComponent,
+	ref,
+	reactive,
+	toRefs,
+	onRenderTracked,
+	onRenderTriggered,
+	watch
+} from "vue";
+import HelloWorld from "./components/HelloWorld.vue";
 
-  // computed: mapState({  ...mapState(["name"])写法之后会变成这样  就是一个语法糖
-  //   name: (state) => state.name,
-  //   name1: (state) => state.name1,
-  //   name2: (state) => state.name2,
-  // }),
+interface DataProps {
+	girls: string[];
+	selectGirl: string;
+	selectGirlFun: (index: number) => void;
+}
 
-  computed: {
-    ...mapState(["name"])
-  },
+export default defineComponent({
+	name: "App",
+	components: {},
+	setup() {
+		// const girls = ref(["大脚", "刘英", "晓红"]);
+		// const selectGirl = ref("");
+		// const selectGirlFun = (index: number) => {
+		// 	selectGirl.value = girls.value[index];
+		// };
 
-  mounted() {
-    // eslint-disable-next-line no-undef
-    // console.log(mapState);
-    // console.log(this.$store.state);
-    console.log(this.name);
-  },
-  methods: {
-    handleClick() {
-      this.$store.dispatch({ type: "increment", name: "lwl" });
-      console.log(this.name, this.name1, this.name2);
-      console.log(mapState(["name", "name1", "name2"]));
-    }
-  }
-};
-export default Index;
+		const data: DataProps = reactive({
+			girls: ["大脚", "刘英", "晓红"],
+			selectGirl: "",
+			selectGirlFun: (index: number) => {
+				data.selectGirl = data.girls[index];
+			}
+		});
+
+		/**
+		 * 状态跟踪钩子函数
+		 * 每一个生命周期都跟踪
+		 */
+		// onRenderTracked((event)=>{
+		//   console.log(event,"变化");
+
+		// })
+		/**
+		 * 单个跟踪
+		 */
+		// onRenderTriggered((event)=>{
+		//   console.log(event);
+
+		// })
+		const refDate = toRefs(data);
+
+		const overText = ref("红浪漫");
+		const overAction = () => {
+			overText.value = "点餐完成！";
+			// document.title = overText.value;
+		};
+		watch([overText, refDate.selectGirl], (newValue, oldValue) => {
+      console.log(newValue, oldValue);
+      document.title = newValue[0];
+		});
+
+		return {
+			...refDate,
+			overText,
+			overAction
+		};
+	}
+});
 </script>
 
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
+	font-family: Avenir, Helvetica, Arial, sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	text-align: center;
+	color: #2c3e50;
+	margin-top: 60px;
 }
 </style>
