@@ -38,6 +38,8 @@ export default defineComponent({
 	name: "App",
 	components: {},
 	setup() {
+		console.log(process.env.NODE_ENV);
+		
 		// const girls = ref(["大脚", "刘英", "晓红"]);
 		// const selectGirl = ref("");
 		// const selectGirlFun = (index: number) => {
