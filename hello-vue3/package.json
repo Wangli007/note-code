@@ -4,12 +4,17 @@
 	"private": true,
 	"scripts": {
 		"serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
+		"build": "vue-cli-service build",
 		"lint": "vue-cli-service lint",
 		"mock": "node_modules/.bin/json-server --watch mock/db.js --routes mock/routes.json --port 9090"
 	},
 	"dependencies": {
-		"vue": "^3.0.0-0"
+		"async-validator": "^3.4.0",
+		"less": "^3.12.2",
+		"less-loader": "^7.0.2",
+		"lodash": "^4.17.20",
+		"vue": "^3.0.0-0",
+		"vue-router": "4.0.0-beta.7"
 	},
 	"devDependencies": {
 		"@typescript-eslint/eslint-plugin": "^2.33.0",

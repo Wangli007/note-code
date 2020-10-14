@@ -1,6 +1,13 @@
 const port = 9090;
 // All configuration item explanations can be find in https://cli.vuejs.org/config/
 module.exports = {
+	chainWebpack: config => {
+		//webpack-chain 你需要熟悉这个api
+	},
+	configureWebpack: config => {
+		// eslint-disable-next-line @typescript-eslint/camelcase
+		config.optimization.minimizer[0].options.terserOptions.compress.drop_console = true;//让生产环境没有console
+	},
 	devServer: {
 		port,
 		open: true,
