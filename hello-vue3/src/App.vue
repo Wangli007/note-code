@@ -11,21 +11,21 @@ import Api from "./api/api";
 export default defineComponent({
 	name: "App",
 	components: {},
-	setup() {
-		const { result, loading, loaded } = useURLAxios(
-			"https://dog.ceo/api/breeds/image/random"
-		);
-		const onHandleRandom = async () => {
-			loaded.value = false;
-			loading.value = true;
-			const dataResult = await Api("https://dog.ceo/api/breeds/image/random");
-			result.value = dataResult;
-			loading.value = false;
-			loaded.value = true;
-		};
+	// setup() {
+	// 	const { result, loading, loaded } = useURLAxios(
+	// 		"https://dog.ceo/api/breeds/image/random"
+	// 	);
+	// 	const onHandleRandom = async () => {
+	// 		loaded.value = false;
+	// 		loading.value = true;
+	// 		const dataResult = await Api("https://dog.ceo/api/breeds/image/random");
+	// 		result.value = dataResult;
+	// 		loading.value = false;
+	// 		loaded.value = true;
+	// 	};
 
-		return { result, loading, loaded, onHandleRandom, status };
-	}
+	// 	return { result, loading, loaded, onHandleRandom, status };
+	// }
 });
 </script>
 

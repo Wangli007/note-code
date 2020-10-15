@@ -1,17 +1,18 @@
 <template>
 	<div>
 		首页!!!
-		<Example/>
 	</div>
 </template>
 
-
 <script>
 import { reactive } from "vue";
-import Example from "@/components/example/example1.vue";
+import api from "@/api/axios/service";
 export default {
-	components:{
-		Example
+	components: {},
+	mounted() {
+		api.user.getUser().then(res => {
+			console.log(res);
+		});
 	}
 };
 </script>
