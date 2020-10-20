@@ -1,0 +1,45 @@
+"use strict";
+
+var _fs = _interopRequireDefault(require("fs"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+class DataParser {
+  constructor() {
+    _defineProperty(this, "data", '');
+
+    _defineProperty(this, "out", null);
+  }
+
+  // 这就是所谓的模板方法
+  parse(pathUrl) {
+    this.readFile(pathUrl);
+    this.doParsing();
+    this.printData();
+  }
+
+  readFile(pathUrl) {
+    this.data = _fs.default.readFileSync(pathUrl, 'utf8');
+  }
+
+  printData() {
+    console.log(this.out);
+  }
+
+}
+
+class CSVParser extends DataParser {
+  doParsing() {
+    this.out = this.data.split(',');
+  }
+
+}
+
+class MarkupParser extends DataParser {
+  doParsing() {
+    this.out = this.data.match(/<\w+>.*<\/\w+>/gim);
+  }
+
+}

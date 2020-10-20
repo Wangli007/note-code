@@ -1,0 +1,11 @@
+.next/
+node_modules/
+/npm-debug.log
+.env
+.DS_Store
+/.env.production
+.idea/
+out/
+build/
+sulink-PC.rar
+_next/

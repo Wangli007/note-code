@@ -1,0 +1,21 @@
+/**
+ * 单例模式（Singleton Pattern）是一种常用的模式
+ * 有一些对象我们往往只需要一个，比如全局缓存、浏览器中的 window 对象等。单例模式用于保证一个类仅有一个实例，并提供一个访问它的全局点。
+ * 如果遇到创建对象时耗时过多或耗资源过多，但又经常用到的对象，我们就可以考虑使用单例模式。
+ */
+class Singleton {
+  // 定义私有的静态属性，来保存对象实例  
+  constructor() {} // 提供一个静态的方法来获取对象实例
+
+
+  static getInstance() {
+    if (!Singleton.singleton) {
+      Singleton.singleton = new Singleton();
+    }
+
+    return Singleton.singleton;
+  }
+
+}
+
+console.log(Singleton.getInstance());

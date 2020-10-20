@@ -1,0 +1,68 @@
+/**
+ * 策略模式（Strategy Pattern）
+ * 定义了一系列的算法，把它们一个个封装起来，并且使它们可以互相替换。策略模式的重心不是如何实现算法，而是如何组织、调用这些算法，从而让程序结构更灵活、可维护、可扩展。
+ * 比如我们登陆要用到账号密码登录 手机验证码 微信 微博 github 等不同的登录方式  可以用这个模式去管理这些不同的登录方式
+ */
+class Authenticator {
+  constructor() {
+    this.strategy = null;
+  }
+
+  setStrategy(strategy) {
+    this.strategy = strategy;
+  }
+
+  authenticate(...args) {
+    //认证策略验证
+    if (!this.strategy) {
+      console.log("尚未设置认证策略");
+      return;
+    }
+
+    return this.strategy.authenticate(...args);
+  }
+
+}
+
+class WechatStrategy {
+  authenticate(wechatToken) {
+    if (wechatToken !== "123") {
+      console.log("无效的微信用户");
+      return;
+    }
+
+    console.log("微信认证成功");
+  }
+
+}
+
+class LocalStrategy {
+  authenticate(username, password) {
+    if (username !== "abao" && password !== "123") {
+      console.log("账号或密码错误");
+      return;
+    }
+
+    console.log("账号和密码认证成功");
+  }
+
+}
+
+const auth = new Authenticator();
+auth.setStrategy(new WechatStrategy()); //微信登录
+
+auth.authenticate("123");
+auth.setStrategy(new LocalStrategy()); //本地登录
+
+auth.authenticate("abao", "123");
+
+function sayhi(say) {
+  console.log(say, "say");
+}
+
+function meet(...args) {
+  console.log(...args);
+  sayhi(...args);
+}
+
+meet("123");

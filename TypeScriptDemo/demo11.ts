@@ -1,4 +1,4 @@
-// private  私有的 、protected  允许在类内及继承的子类中使用   public  默认的 公共的
+// private  私有的  protected 保护的 只能在类内及继承的子类中使用  public 默认的 公共的
 
 class Person {
   protected name: string = "wangLi";
