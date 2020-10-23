@@ -1,0 +1,14 @@
+{
+  "name": "hello-test1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "bin": {
+    "hello-cli": "index.js"
+  },
+  "scripts": {
+    "hello": "hello-cli"
+  },
+  "author": "",
+  "license": "ISC"
+}
