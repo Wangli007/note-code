@@ -31,9 +31,9 @@ export const api = axios.create({
  * axios.all 和 axios.spread
  * 好处 解决了并发请求的场景  一个请求结束后才会执行下一个请求
  */
-function getDetail(id) {
-	return api.get("/business/getDetail?business_id=" + id);
-}
+// function getDetail(id) {
+// 	return api.get("/business/getDetail?business_id=" + id);
+// }
 // api.spread((acct, perms) => {
 
 //     console.log(acct);
@@ -59,7 +59,7 @@ function getDetail(id) {
 api.interceptors.request.use(
 	//请求拦截
 	config => {
-		config.headers['Authorization'] = "46a39153-8aae-4afd-8a56-d791f5248d33"
+		// config.headers['Authorization'] = "46a39153-8aae-4afd-8a56-d791f5248d33"
 		return config;
 	},
 	error => {
@@ -83,6 +83,5 @@ api.interceptors.response.use(
 		return Promise.reject(error);
 	}
 );
-
 
 export default api;

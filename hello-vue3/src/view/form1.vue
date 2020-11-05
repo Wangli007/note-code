@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import {onRenderTriggered} from 'vue'
+import { onRenderTriggered } from "vue";
 import ValidatorUtils from "@/lib/validator";
 export default {
 	data() {
@@ -22,11 +22,11 @@ export default {
 				name: "李四",
 				// 手机号
 				age: "20"
-            },
-            errMsg:{
-                name:"名字必填",
-                age:"年龄必填"
-            },
+			},
+			errMsg: {
+				name: "名字必填",
+				age: "年龄必填"
+			},
 			// 校验
 			rules: {
 				// 校验规则
@@ -55,23 +55,22 @@ export default {
 	},
 	setup() {
 		// console.log(this)
-        // onRenderTriggered((e)=>{
-        //     console.log(e);
-        //     console.log();
-        // })
-
+		// onRenderTriggered((e)=>{
+		//     console.log(e);
+		//     console.log();
+		// })
 	},
 	created() {
 		this.validator = new ValidatorUtils({
 			rules: this.rules,
-            data: this.formData,
-            errMsg:this.errMsg
+			data: this.formData,
+			errMsg: this.errMsg
 		});
-        this.formData = this.validator.Data;
-    },
-    mounted(){
-        console.log(this,"111111");
-    }
+		this.formData = this.validator.Data;
+	},
+	mounted() {
+		console.log(this, "111111");
+	}
 };
 </script>
 

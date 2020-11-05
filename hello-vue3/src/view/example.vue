@@ -1,20 +1,29 @@
 <template>
 	<div>
-		<div v-if="loading">Loading.....</div>
-		<div v-show="loaded">
-			<img :src="result && result.message" />
-			<button @click="onHandleRandom">点击更换</button>
-		</div>
+		<pre>{{ user }}</pre>
+		<pre>{{ columns }}</pre>
 	</div>
 </template>
 
 <script lang="ts">
-import { reactive } from "vue";
-export default {
-	setup() {
-		console.log(process.env.NODE_ENV);
+import { computed, defineComponent, Ref, ref } from "vue";
+import store, { RuleProps } from "../store";
+import { useRoute } from "vue-router";
+
+export default defineComponent({
+	name: "form-test",
+	components: {},
+	setup(props, connect) {
+		const route = useRoute();
+		const columnId: number = +route.params.id;
+		const user = computed(() => store.state.user);
+		const columns = computed(() => store.getters.getColumnById(columnId));
+		return {
+			user,
+			columns
+		};
 	}
-};
+});
 </script>
 
 <style></style>
