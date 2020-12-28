@@ -17,6 +17,7 @@
 		<Loader v-if="loading" />
 		<Message message="content" type="success" />
 		<button @click="onCreateMessage">点击弹出消息</button>
+		<router-link to="/example">跳转到example</router-link>
 	</div>
 </template>
 

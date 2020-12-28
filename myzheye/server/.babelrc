@@ -1,0 +1,13 @@
+{
+    // 开发环境也需要这个配置才能运行
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "targets": {
+          "node": true
+        }
+      }
+    ]
+  ]
+}

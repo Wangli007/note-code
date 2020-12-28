@@ -12,8 +12,8 @@ const router = createRouter({
 		},
 		{
 			path: "/form1",
-      component: () => import("../view/form1.vue"),
-      meta: { redirectAlreadyLogin: true } //跳转到首页
+			component: () => import("../view/form1.vue"),
+			meta: { redirectAlreadyLogin: true } //跳转到首页
 		},
 		{
 			path: "/index",
@@ -21,10 +21,15 @@ const router = createRouter({
 			name: "index"
 		},
 		{
+			path: "/example",
+			component: () => import("../view/example.vue"),
+			name: "example1"
+		},
+		{
 			path: "/example/:id",
 			component: () => import("../view/example"),
-      name: "example",
-      meta: { requiredLogin: true } //跳转到登录页
+			name: "example",
+			meta: { requiredLogin: true } //跳转到登录页
 		},
 		{
 			path: "/login",
@@ -39,14 +44,14 @@ const router = createRouter({
 });
 
 router.beforeEach((to, from, next) => {
-  //要跳转的页面不是login 并且 登录状态是false
+	//要跳转的页面不是login 并且 登录状态是false
 	if (to.meta.requiredLogin && !store.state.user.isLogin) {
 		next({ name: "login" });
-	} else if(to.meta.redirectAlreadyLogin && store.state.user.isLogin) {
+	} else if (to.meta.redirectAlreadyLogin && store.state.user.isLogin) {
 		next("/");
-	}else{
-    next()
-  }
+	} else {
+		next();
+	}
 });
 
 export default router;

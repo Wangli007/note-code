@@ -1,0 +1,7 @@
+{
+    "exec": "yarn dev",
+    "watch": [
+        ""
+    ],
+    "ext": "js, html, css, json"
+}

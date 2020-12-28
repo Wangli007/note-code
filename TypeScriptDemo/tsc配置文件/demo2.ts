@@ -1,1 +1,0 @@
-const person1: string = "jspang";

@@ -4,6 +4,8 @@ import router from './router'
 import service from "./api/axios/service";
 import store from './store'
 
+console.log(123123);
+
 const app = createApp(App)
 // app.use(service)
 // console.log(app);

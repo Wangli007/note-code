@@ -1,0 +1,48 @@
+@mixin makeCenter{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin xCenter {
+  display: flex;
+  justify-content: center;
+}
+
+@mixin yCenter {
+  display: flex;
+  align-items: center;
+}
+
+@mixin fullScreen {
+  height: 100vh;
+  width: 100vw;
+}
+
+@mixin setTopAng($borderColor:#ffffff) {
+  background: linear-gradient(to left, $borderColor, $borderColor) left top no-repeat,
+  linear-gradient(to bottom,$borderColor, $borderColor) left top no-repeat,
+  linear-gradient(to left, $borderColor, $borderColor) right top no-repeat,
+  linear-gradient(to bottom, $borderColor, $borderColor) right top no-repeat;
+  background-size: 2px 12px, 12px 2px, 2px 12px, 12px 2px;
+}
+
+@mixin setBottomAng($borderColor:#ffffff) {
+  background: linear-gradient(to left, $borderColor, $borderColor) left bottom no-repeat,
+  linear-gradient(to bottom, $borderColor, $borderColor) left bottom no-repeat,
+  linear-gradient(to left, $borderColor, $borderColor) right bottom no-repeat,
+  linear-gradient(to left, $borderColor, $borderColor) right bottom no-repeat;
+  background-size: 2px 12px, 12px 2px, 2px 12px, 12px 2px;
+}
+
+@mixin setAng($borderColor:#ffffff){
+  background: linear-gradient(to left, $borderColor, $borderColor) left top no-repeat,
+  linear-gradient(to bottom,$borderColor, $borderColor) left top no-repeat,
+  linear-gradient(to left, $borderColor, $borderColor) right top no-repeat,
+  linear-gradient(to bottom, $borderColor, $borderColor) right top no-repeat,
+  linear-gradient(to left, $borderColor, $borderColor) left bottom no-repeat,
+  linear-gradient(to bottom, $borderColor, $borderColor) left bottom no-repeat,
+  linear-gradient(to left, $borderColor, $borderColor) right bottom no-repeat,
+  linear-gradient(to left, $borderColor, $borderColor) right bottom no-repeat;
+  background-size: 2px 12px, 12px 2px, 2px 12px, 12px 2px;
+}

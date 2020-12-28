@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="190px" height="55px" viewBox="0 0 190 55" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 60.1 (88133) - https://sketch.com -->
+    <title>status-2_bg</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <polygon id="path-1" points="0 1.51407359e-12 0 34.3738613 11.480916 45.8318151 139.206107 45.8318151 144.946565 53 188 53 188 45.8318151 162.167939 12.890198 119.114504 12.890198 107.633588 4.59701721e-17"></polygon>
+        <filter x="-9.3%" y="-33.0%" width="118.6%" height="166.0%" filterUnits="objectBoundingBox" id="filter-2">
+            <feMorphology radius="2" operator="erode" in="SourceAlpha" result="shadowSpreadInner1"></feMorphology>
+            <feGaussianBlur stdDeviation="16" in="shadowSpreadInner1" result="shadowBlurInner1"></feGaussianBlur>
+            <feOffset dx="0" dy="0" in="shadowBlurInner1" result="shadowOffsetInner1"></feOffset>
+            <feComposite in="shadowOffsetInner1" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner1"></feComposite>
+            <feColorMatrix values="0 0 0 0 0.250980392   0 0 0 0 0.615686275   0 0 0 0 1  0 0 0 0.7 0" type="matrix" in="shadowInnerInner1"></feColorMatrix>
+        </filter>
+        <polygon id="path-3" points="0 41 0 48 7 48"></polygon>
+        <filter x="-21.4%" y="-31.5%" width="153.0%" height="153.0%" filterUnits="objectBoundingBox" id="filter-4">
+            <feGaussianBlur stdDeviation="1" in="SourceAlpha" result="shadowBlurInner1"></feGaussianBlur>
+            <feOffset dx="0" dy="0" in="shadowBlurInner1" result="shadowOffsetInner1"></feOffset>
+            <feComposite in="shadowOffsetInner1" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner1"></feComposite>
+            <feColorMatrix values="0 0 0 0 0.250980392   0 0 0 0 0.615686275   0 0 0 0 1  0 0 0 1 0" type="matrix" in="shadowInnerInner1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="车间主任-高保真" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="生产数据看板" transform="translate(-49.000000, -634.000000)">
+            <g id="status-2_bg" transform="translate(50.000000, 635.000000)">
+                <g id="路径-26">
+                    <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+                    <use stroke="#0394E4" stroke-width="1" xlink:href="#path-1"></use>
+                </g>
+                <line x1="189" y1="49.5" x2="153" y2="49.5" id="路径-27" stroke="#0394E4" stroke-width="2"></line>
+                <g id="路径-28">
+                    <use fill="black" fill-opacity="1" filter="url(#filter-4)" xlink:href="#path-3"></use>
+                    <use stroke="#0394E4" stroke-width="1" xlink:href="#path-3"></use>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

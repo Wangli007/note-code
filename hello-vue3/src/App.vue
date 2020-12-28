@@ -8,11 +8,11 @@
 import { defineComponent, ref, toRefs } from "vue";
 import useURLAxios from "./hooks/useURLAxios";
 import Api from "./api/api";
-import example from '@/components/example/example'
+import example from "@/components/example/example";
 import "./help.ts";
 export default defineComponent({
 	name: "App",
-	components: {},
+	components: {}
 	// setup() {
 	// 	const { result, loading, loaded } = useURLAxios(
 	// 		"https://dog.ceo/api/breeds/image/random"

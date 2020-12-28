@@ -1,7 +1,8 @@
 <template>
 	<div>
-		<pre>{{ user }}</pre>
-		<pre>{{ columns }}</pre>
+		<pre>123123</pre>
+		<pre>123123</pre>
+		<DataPanel />
 	</div>
 </template>
 
@@ -9,10 +10,11 @@
 import { computed, defineComponent, Ref, ref } from "vue";
 import store, { RuleProps } from "../store";
 import { useRoute } from "vue-router";
+import DataPanel from "@/components/DataPanel";
 
 export default defineComponent({
 	name: "form-test",
-	components: {},
+	components: { DataPanel },
 	setup(props, connect) {
 		const route = useRoute();
 		const columnId: number = +route.params.id;
