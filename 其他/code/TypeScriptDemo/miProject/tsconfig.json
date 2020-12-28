@@ -1,0 +1,6 @@
+{
+  "compilerOptions": {
+    "module": "ES6", //使用ES6的写法
+    "target": "ES5"  //转换成ES5
+  }
+}
