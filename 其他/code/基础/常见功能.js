@@ -58,6 +58,31 @@ const throttle = (fn, time) => {
   };
 };
 
+
+function throttle(fun, delay) {
+  let last, deferTimer;
+  return function (args) {
+      let that = this;
+      let _args = arguments;
+      let now = +new Date();
+      if (last && now < last + delay) {
+          message.error('操作太快了，请稍后再试！')
+          clearTimeout(deferTimer)
+          deferTimer = setTimeout(function () {
+              last = now;
+              console.log(_args,"_args");
+              fun.apply(that, _args)
+          }, delay)
+      }else {
+          last = now
+          console.log(_args,"_args");
+          fun.apply(that,_args)
+      }
+  }
+}
+
+const f = throttle((args)=>console.log(args,123),1500) //1500秒触发一次
+
 /**
  * 函数珂里化  指的是将一个接受多个参数的函数 变为 接受一个参数返回一个函数的固定形式，这样便于再次调用，例如f(1)(2)
  * 经典面试题：实现add(1)(2)(3)(4)=10; 、 add(1)(1,2,3)(2)=9;
