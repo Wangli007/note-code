@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <canvas id="canvas" width="800" height="800"></canvas>
+  <script>
+    const canvas = document.querySelector("#canvas");
+    const ctx = canvas.getContext('2d');
+    ctx.fillStyle = 'red';
+    ctx.fillRect(25,25,50,50);  // 正方形 长方形
+    //前面两个表示开始的起点(25,25)   后面表示矩形的宽度和高度
+
+    ctx.beginPath(); //重新开始绘制
+    ctx.lineWidth = 2;
+    ctx.strokeStyle = '#4d88ff';
+    ctx.moveTo(100,100);
+    ctx.lineTo(250,75);
+    ctx.lineTo(300,100)
+    ctx.stroke();  //线条
+
+    ctx.beginPath();
+    ctx.lineWidth = 2;
+    ctx.strokeStyle = 'green';
+    ctx.fillStyle = 'red';
+    ctx.arc(200,200,50,0,2 * Math.PI);
+    //x轴位置 y轴位置 圆弧半径 圆弧起始点 圆弧的终点
+    ctx.stroke();
+    ctx.fill();
+
+  </script>
+</body>
+</html>
